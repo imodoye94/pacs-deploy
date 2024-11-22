@@ -44,7 +44,7 @@ nano ./ohif/nginx/ohif-nginx.conf
 and paste base64-encoded user name and password
 
 ```conf
-proxy_set_header Authorization "Basic aHlwZXI6bWFwZHI=";  # Replace with base64-encoded credentials
+proxy_set_header Authorization "Basic Y2xpZW50MTpAcGFzc3dvcmQjMTIzNC0x";  # Replace with base64-encoded credentials
 ```
 > Whenever you access OHIF it won't ask for Orthanc auth and password. 
 
