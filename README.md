@@ -22,7 +22,7 @@ cd pacs-deploy
 ### Set Orthanc UserName & Password
 > Use you favourite text editor
 ```bash
-nano ./orthanc/config/orthanc.json
+nano orthanc.json
 ```
 ```json
    "AuthenticationEnabled": true,
@@ -39,7 +39,7 @@ echo -n 'client1": "@password#1234-1' | base64
 ### Update Nginx config for Ohif to pass http auth for accessing Orthanc
 Edit Nginx reverse proxy
 ```bash
-nano ./ohif/nginx/ohif-nginx.conf
+nano nginx_ohif.conf
 ```
 and paste base64-encoded user name and password
 
