@@ -34,9 +34,9 @@
   "SslMinimumProtocolVersion" : 4,
   "SslVerifyPeers" : false,
   "SslTrustedClientCertificates" : "trustedClientCertificates.pem",
-  "AuthenticationEnabled" : false,
+  "AuthenticationEnabled" : true,
     "RegisteredUsers" : {
-    "mapdr" : "changestrongpassword"
+    "client1": "@password#1234-1"
   },
   "DicomTlsEnabled" : false,
   "DicomTlsRemoteCertificateRequired" : true,
