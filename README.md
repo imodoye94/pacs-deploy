@@ -27,13 +27,13 @@ nano ./orthanc/config/orthanc.json
 ```json
    "AuthenticationEnabled": true,
   "RegisteredUsers": {
-    "userx": "@password#1234-x"
+    "client1": "@password#1234-1"
   },
 ```
 
 ### Create generate the base64-encoded string
 ```bash
-echo -n 'userx:@password#1234-x' | base64
+echo -n 'client1": "@password#1234-1' | base64
 ```
 
 ### Update Nginx config for Ohif to pass http auth for accessing Orthanc
