@@ -1,4 +1,20 @@
 services:
+  nginxproxymanager:
+    image: "jc21/nginx-proxy-manager:latest"
+    container_name: nginx-proxy
+    restart: unless-stopped
+    ports:
+      - "80:80" # Public HTTP Port
+      - "443:443" # Public HTTPS Port
+      - "81:81" # Admin Web Port
+    environment:
+      DB_SQLITE_FILE: "/data/database.sqlite"
+      DISABLE_IPV6: "true"
+    volumes:
+      - ./proxy/data:/data
+      - ./proxy/letsencrypt:/etc/letsencrypt
+    networks:
+      - pacs
   pacs:
     container_name: orthanc
     image: jodogne/orthanc-plugins
@@ -16,7 +32,7 @@ services:
     container_name: ohif
     image: ohif/app
     ports:
-      - 3000:80
+      - 3000:3000
     environment:
       - APP_CONFIG:/usr/share/nginx/html/app-config.js
     volumes:
