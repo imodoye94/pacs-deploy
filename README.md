@@ -19,6 +19,35 @@ git clone https://github.com/imodoye94/pacs-deploy.git
 cd pacs-deploy
 ```
 
+### Set Orthanc UserName & Password
+> Use you favourite text editor
+```bash
+nano ./orthanc/config/orthanc.json
+```
+```json
+   "AuthenticationEnabled": true,
+  "RegisteredUsers": {
+    "userx": "@password#1234-x"
+  },
+```
+
+### Create generate the base64-encoded string
+```bash
+echo -n 'userx:@password#1234-x' | base64
+```
+
+### Update Nginx config for Ohif to pass http auth for accessing Orthanc
+Edit Nginx reverse proxy
+```bash
+nano ./ohif/nginx/ohif-nginx.conf
+```
+and paste base64-encoded user name and password
+
+```conf
+proxy_set_header Authorization "Basic aHlwZXI6bWFwZHI=";  # Replace with base64-encoded credentials
+```
+> Whenever you access OHIF it won't ask for Orthanc auth and password. 
+
 ### Spin up containers
 ```bash
 docker compose up -d
