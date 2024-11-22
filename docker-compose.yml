@@ -19,7 +19,6 @@ services:
     container_name: orthanc
     image: jodogne/orthanc-plugins
     ports:
-      - 8042:8042
       - 4242:4242
     volumes:
       - ./orthanc.json:/etc/orthanc/orthanc.json:ro
@@ -31,8 +30,6 @@ services:
   ohif_viewer:
     container_name: ohif
     image: ohif/app
-    ports:
-      - 3000:3000
     environment:
       - APP_CONFIG:/usr/share/nginx/html/app-config.js
     volumes:
