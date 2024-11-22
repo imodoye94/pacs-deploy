@@ -6,10 +6,10 @@
 
 > **📀 Orthanc:** Its free and open-source, lightweight DICOM server for medical imaging.
 
-### Create new docker network `proxy`
+### Create new docker network `pacs`
 
 ```bash
-docker network create proxy
+docker network create pacs
 ```
 
 ### Clone This Repo
