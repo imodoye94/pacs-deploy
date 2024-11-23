@@ -291,10 +291,10 @@ Complete automation logic and connectivity details for the scanner continue.
         - **Change ownership of folder**:
 
 
-		 ```bash
-		 sudo docker exec -it --user root <n8n container id> chown -R node /files/worklists_wl/siteid
-		 sudo docker exec -it --user root <n8n container id> chmod -R u+rwx /files/worklists_wl/siteid
-		 ```
+		```bash
+		sudo docker exec -it --user root <n8n container id> chown -R node /files/worklists_wl/siteid
+		sudo docker exec -it --user root <n8n container id> chmod -R u+rwx /files/worklists_wl/siteid
+		```
 ---
 
 ## 2c. Automating Image Forwarding Using Lua Scripts
