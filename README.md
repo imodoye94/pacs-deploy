@@ -179,7 +179,7 @@ sudo docker exec -it --user root ohif sh -c "sed -i 's/<title>OHIF Viewer<\/titl
     - Follow the installation prompts to complete the setup.
 
 4. **Copy the Lua Script**:
-    - Create a directory for Orthanc scripts, e.g., `C:\Users\HP\Documents\OrthancScripts`.
+    - Create a directory for Orthanc scripts, e.g., `C:\\Users\\HP\\Documents\\OrthancScripts`.
     - Copy `upload_to_cloud.lua` into this directory.
 
 ---
@@ -195,7 +195,7 @@ Complete automation logic and connectivity details for the scanner continue.
 
 ### Configure Orthanc
 
-1. **Open the `orthanc.json` configuration file** (usually located in `C:\Program Files\Orthanc`).
+1. **Open the `orthanc.json` configuration file** (usually located in `C:\\Program Files\\Orthanc Server\\Configuration`).
 
 2. **Update the `Name` and `DicomAet` to your desired AE Title**, e.g., "Mediverse":
 
@@ -210,17 +210,17 @@ Complete automation logic and connectivity details for the scanner continue.
 3. **Add the path to the Lua scripts**:
 
     ```json
-    "LuaScripts": [ "C:\OrthancScripts\upload_to_cloud.lua" ],
+    "LuaScripts": [ "C:\\Users\\HP\\Documents\\OrthancScripts\\upload_to_cloud.lua" ],
     ```
 
 4. **Define the Orthanc peer (the cloud PACS)**:
 
     ```json
     "OrthancPeers": {
-      "siteid_cloud": {
+      "MediverseCloud_siteid": {
         "Url": "https://siteid.pacs.example.com",
-        "Username": "your_orthanc_username",
-        "Password": "your_orthanc_password"
+        "Username": "your_orthanc_cloud_username",
+        "Password": "your_orthanc_cloud_password"
       }
     },
     ```
@@ -230,7 +230,7 @@ Complete automation logic and connectivity details for the scanner continue.
     ```json
     "Worklists": {
       "Enabled": true,
-      "Database": "C:\OrthancWorklists"
+      "Database": "C:\\Users\\HP\\Documents\\PACSWorklists"
     },
     ```
 
@@ -248,7 +248,7 @@ Complete automation logic and connectivity details for the scanner continue.
 
 ### Set Up the Worklist Directory
 
-1. **Create the directory specified in the `Database` path**, e.g., `C:\OrthancWorklists`.
+1. **Create the directory specified in the `Database` path**, e.g., `C:\\Users\\HP\\Documents\\PACSWorklists`.
 
 2. **Grant full permissions to the Syncthing service account**:
 
@@ -266,8 +266,8 @@ Complete automation logic and connectivity details for the scanner continue.
 
 2. **Add a folder to share**:
 
-   - **Folder Path**: `C:\OrthancWorklists`.
-   - **Folder ID**: A unique identifier (e.g., `worklists`).
+   - **Folder Path**: `C:\Users\HP\Documents\PACSWorklists`.
+   - **Folder ID**: A unique identifier (e.g., `siteid-worklists`).
    - **Folder Label**: `Orthanc Worklists`.
 
 3. **Connect Syncthing to the Cloud Instance**:
@@ -288,7 +288,7 @@ Complete automation logic and connectivity details for the scanner continue.
 function OnStoredInstance(instanceId, tags, metadata, origin)
   -- Avoid infinite loops
   if origin['RequestOrigin'] ~= 'Lua' then
-    local peerName = 'siteid_cloud'
+    local peerName = 'MediverseCloud_siteid'
     local resourceType = 'Instance'
 
     -- Send the instance to the cloud PACS
@@ -311,7 +311,7 @@ end
 ### Verify the Script Path in `orthanc.json`:
 
 ```json
-"LuaScripts": [ "C:\OrthancScripts\upload_to_cloud.lua" ],
+"LuaScripts": [ "C:\\Users\\HP\\Documents\\OrthancScripts\\upload_to_cloud.lua" ],
 ```
 
 ---
