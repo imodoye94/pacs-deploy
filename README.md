@@ -277,7 +277,21 @@ Complete automation logic and connectivity details for the scanner continue.
      - **Device ID**: Cloud Syncthing Device ID.
      - **Device Name**: `CloudSyncthing`.
    - **Share the `Orthanc Worklists` folder** with the cloud device.
+   
+4. **Set up the folders in the running container where .wl files from the LIMS will be written**:
 
+   - **Login to the CLFY backend** of mediverse cloud.
+   - **SSH into the running n8n container** here create a single folder for that sites's .wl files:
+     - **Create a folder**: 
+		 ```bash
+		 mkdir /files/worklists_wl/siteid
+		 ```
+   - **SSH into the CLFY host itself** grant ownership and permission of the site folder to the node user.
+        - **Change ownership of folder**: 
+		 ```bash
+		 sudo docker exec -it --user root <n8n container id> chown -R node /files/worklists_wl/siteid
+		 sudo docker exec -it --user root <n8n container id> chmod -R u+rwx /files/worklists_wl/siteid
+		 ```
 ---
 
 ## 2c. Automating Image Forwarding Using Lua Scripts
