@@ -325,6 +325,61 @@ end
 
 ---
 
+## Configuring Cloud Sync via Python on Folder
+
+### Prepare python script
+1. **Update the placeholders** In the script ImportDicomFiles.py found in OrthancScripts folder from the flash (now on the customer's PC):
+   - **URL**: https://siteid.pacs.mediverse.ai.
+   - **Usernme**: Cloud PACS Username.
+   - **Password**: Cloud PACS Password.
+
+2. **Copy the script** Copy the content of the script to clipboad.
+
+3. **Generate Executable in Cloud**
+	- **Create a .py File** : On the cloud server
+	
+	```bash
+		cd ~/site_upload_scripts
+		nano ImportDicomFiles_siteid.py
+	```
+
+	- **Paste the copied code into the .py file** and save the file
+	
+	- **Generate Executable using pyinstaller and move it to github Repository**
+	
+	```bash
+		pyinstaller --onefile ImportDicomFiles_siteid.py
+		cd dist
+		git clone https://github.com/imodoye94/pacs-deploy.git
+		mv ImportDicomFiles_siteid pacs-deploy/executables/ImportDicomFiles_siteid
+		cd pacs-deploy
+		git add ImportDicomFiles_siteid
+		git config --global user.name "imodoye94"
+		git config --global user.email "abioroimodoye@gmail.com"
+		git commit -m "Added ImportDicomFiles_siteid to the repository"
+		git push origin main
+		cd ~/site_upload_scripts
+		sudo rm -rf ./*
+	```
+4. **Download the Executable File from GITHUB** then save it to the `C:/Users/HP/Documents/OrthancScripts` (or related folder).
+
+5. **Copy the nssm .EXE file from the flash and paste in same directory**
+
+6. **Open command prompt and make the service**
+
+
+	```bash
+		#Change directory to anywhere you have placed 
+		#BOTH the nssm .exe and the python executable
+		
+		cd /Users/HP/Documents/OrthancScripts
+		nssm install
+		
+		#Follow the nssm prompt to the end 
+		#Then open windows services and start the service
+	```
+
+
 ## Connecting the Scanner to the Local Orthanc
 
 ### Configure the Local Network Adapter
