@@ -225,7 +225,7 @@ Complete automation logic and connectivity details for the scanner continue.
     },
     ```
 
-5. **Enable the Worklist feature (this is INSIDE worklist.json NOT orthanc.json)**:
+5. **Enable the Worklist feature (this is INSIDE worklists.json NOT orthanc.json)**:
 
     ```json
     "Worklists": {
@@ -234,7 +234,7 @@ Complete automation logic and connectivity details for the scanner continue.
     },
     ```
 
-6. **Save the `orthanc.json` file**.
+6. **Save the `orthanc.json` and `worklists.json` files**.
 
 ---
 
