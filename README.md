@@ -71,7 +71,7 @@ This document outlines the process of setting up a cloud-based PACS and viewer, 
     nano orthanc.json
     ```
 
-2. **Update the `Username` and `Password` fields** with the secure Orthanc credentials retrieved from your secure credentials manager:
+2. **Set the `Username` and `Password` fields** with a secure strong combination and note the value in the config.txt file:
 
     ```json
     {
@@ -86,7 +86,7 @@ This document outlines the process of setting up a cloud-based PACS and viewer, 
 
 ### Step 4: Configure Nginx for the OHIF Viewer
 
-1. **Generate the Base64 encoded string** of the `username:password` combination:
+1. **Generate the Base64 encoded string** of the `username:password` combination you set above:
 
     ```bash
     echo -n 'username:password' | base64
