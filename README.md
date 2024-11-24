@@ -340,7 +340,7 @@ end
 	
 	```bash
 		cd ~/site_upload_scripts
-		nano ImportDicomFiles_siteid.py
+		nano ImportDicomFiles_siteid.py #REMEMBER TO RENAME THIS!
 	```
 
 	- **Paste the copied code into the .py file** and save the file
