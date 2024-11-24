@@ -373,10 +373,10 @@ end
 		#BOTH the nssm .exe and the python executable
 		
 		cd /Users/HP/Documents/OrthancScripts
-		nssm install
+		nssm install DicomUploaderService
 		
 		#Follow the nssm prompt to the end 
-		#Then open windows services and start the service
+		#Then open windows services and start DicomUploaderService
 	```
 
 
