@@ -115,7 +115,7 @@ This document outlines the process of setting up a cloud-based PACS and viewer, 
 2. **Start the containers using Docker Compose**:
 
     ```bash
-    docker-compose up -d
+    docker compose up -d
     ```
 
 ### Run this command everytime you restart the containers to change the Viewer HTML Title
