@@ -318,9 +318,10 @@ end
 
 ---
 
-### Restart Orthanc Service Again:
+### Restart Orthanc Service Again and test the file sync:
 
 - Restart the Orthanc service to ensure the Lua script is loaded.
+- Place a demo.txt file in the `/PACSWorklists` directory and check if it shows up in the n8n container inside the /files/worklists_wl/siteid folder
 
 ---
 
