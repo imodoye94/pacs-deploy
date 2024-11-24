@@ -225,7 +225,7 @@ Complete automation logic and connectivity details for the scanner continue.
     },
     ```
 
-5. **Enable the Worklist feature**:
+5. **Enable the Worklist feature (this is INSIDE worklist.json NOT orthanc.json)**:
 
     ```json
     "Worklists": {
