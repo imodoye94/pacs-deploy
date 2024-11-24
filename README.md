@@ -338,23 +338,20 @@ end
 
 3. **Generate Executable in Cloud**
 	- **Create a .py File** : On the cloud server
-	
-	```bash
-		cd ~/site_upload_scripts
-		nano ImportDicomFiles_siteid.py #REMEMBER TO RENAME THIS!
-	```
 
 	- **Paste the copied code into the .py file** and save the file
 	
 	- **Generate Executable using pyinstaller and move it to github Repository**
 	
 	```bash
+		cd ~/site_upload_scripts
+		nano ImportDicomFiles_siteid.py
 		pyinstaller --onefile ImportDicomFiles_siteid.py
 		cd dist
 		git clone https://github.com/imodoye94/pacs-deploy.git
 		mv ImportDicomFiles_siteid pacs-deploy/executables/ImportDicomFiles_siteid
 		cd pacs-deploy
-		git add ImportDicomFiles_siteid
+		git add executables/ImportDicomFiles_siteid
 		git config --global user.name "imodoye94"
 		git config --global user.email "abioroimodoye@gmail.com"
 		git commit -m "Added ImportDicomFiles_siteid to the repository"
