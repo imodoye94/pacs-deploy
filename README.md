@@ -332,6 +332,7 @@ end
    - **URL**: https://siteid.pacs.mediverse.ai.
    - **Usernme**: Cloud PACS Username.
    - **Password**: Cloud PACS Password.
+   - **Upload Folder**: Path to the upload folder where images will be placed e.g. `C:/Users/HP/Documents/uploadFolder`
 
 2. **Copy the script** Copy the content of the script to clipboad.
 
